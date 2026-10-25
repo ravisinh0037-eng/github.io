@@ -88,17 +88,61 @@ footer{padding:28px 0 40px;border-top:1px solid var(--bd);color:var(--mu);font-s
 #up{position:fixed;right:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));opacity:0;pointer-events:none;transition:opacity .3s;z-index:25}#up.s{opacity:1;pointer-events:auto}
 .rv{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}.rv.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}html{scroll-behavior:auto}.rv{opacity:1;transform:none}}
+
+#bg{position:absolute;inset:0;width:100%;height:100%;z-index:-1;opacity:.7}
+#gl{position:fixed;left:0;top:0;width:480px;height:480px;margin:-240px 0 0 -240px;border-radius:50%;background:radial-gradient(circle,rgba(79,70,229,.14),transparent 65%);pointer-events:none;z-index:-1;opacity:0;transition:opacity .3s;will-change:transform}
+@media(hover:none){#gl{display:none}}
+.tm{background:#0f1420;color:#d6deeb;border-radius:14px;border:1px solid #263044;box-shadow:var(--sh);overflow:hidden;font:13px/1.7 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;transition:transform .15s ease-out,opacity .7s}
+.tm .bar{display:flex;gap:7px;align-items:center;padding:10px 14px;background:#161d2e;color:#8b97ad;font-size:12px}
+.bar i{width:11px;height:11px;border-radius:50%;background:#ff5f56}.bar i:nth-child(2){background:#ffbd2e}.bar i:nth-child(3){background:#27c93f}
+.tm pre{margin:0;padding:14px 16px;overflow-x:auto;white-space:pre}
+.k{color:#c792ea}.t{color:#7fdbca}.c{color:#6b7a99}
+.ln{display:block;opacity:0;animation:ln .5s forwards;animation-delay:calc(var(--i)*.45s + .8s)}
+.ln:last-child::after{content:"▍";margin-left:3px;animation:pu 1s infinite}
+@keyframes ln{from{opacity:0;transform:translateX(-10px)}to{opacity:1;transform:none}}
+.mq{overflow:hidden;border-block:1px solid var(--bd);padding:14px 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.mt{display:flex;width:max-content;animation:mq 45s linear infinite}.mq:hover .mt{animation-play-state:paused}
+.mt span{margin-right:34px;color:var(--mu);font-weight:600;white-space:nowrap}.mt span::before{content:"◆";color:var(--ac);margin-right:10px;font-size:10px}
+@keyframes mq{to{transform:translateX(-50%)}}
+.sg{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.sv{background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:20px;box-shadow:var(--sh);transition:transform .15s ease-out,border-color .2s}
+.sv:hover{border-color:var(--ac)}.sv .ic{font-size:26px;display:inline-block;transition:transform .3s}.sv:hover .ic{transform:scale(1.25) rotate(-8deg)}
+.sv h3{margin:10px 0 6px;font-size:17px}.sv p{margin:0;color:var(--mu);font-size:14px}
+.rv.in .sv{animation:up .6s backwards;animation-delay:calc(var(--i)*70ms)}
+@keyframes up{from{opacity:0;transform:translateY(18px)}}
+.pf{display:flex;align-items:center;margin:8px 0 20px}
+.nd{font:inherit;cursor:pointer;background:var(--cd);color:var(--tx);border:1px solid var(--bd);border-radius:14px;padding:14px 12px;min-width:120px;text-align:center;transition:all .3s}
+.nd span{display:block;font-size:24px}.nd small{display:block;margin-top:4px;font-size:13px;font-weight:600}
+.nd.on{border-color:var(--ac);box-shadow:0 0 0 4px rgba(79,70,229,.15),var(--sh);transform:translateY(-4px)}
+.ar{display:block;position:relative;flex:1;height:2px;background:var(--bd);min-width:24px}
+.ar::after{content:"";position:absolute;top:-3px;left:0;width:8px;height:8px;border-radius:50%;background:var(--a2);animation:pk 2s linear infinite}
+@keyframes pk{to{left:calc(100% - 8px)}}@keyframes pv{to{top:calc(100% - 8px)}}
+@media(max-width:760px){.pf{flex-direction:column}.ar{width:2px;height:34px;flex:none}.ar::after{top:0;left:-3px;animation-name:pv}.nd{width:100%}}
+#pd h3{margin:0 0 6px}#pd p{margin:6px 0;color:var(--mu)}
+.jh{margin:38px 0 0;font-size:20px}
+.jr{position:relative;margin:22px 0 0 6px;padding-left:28px;border-left:2px solid var(--bd)}
+.fi{position:absolute;left:-2px;top:0;width:2px;height:0;background:linear-gradient(var(--ac),var(--a2))}
+.ji{position:relative;padding:0 0 22px;opacity:.4;transition:opacity .5s}
+.ji::before{content:"";position:absolute;left:-36px;top:5px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--bd);transition:all .4s}
+.ji.on{opacity:1}.ji.on::before{background:var(--ac);border-color:var(--ac);box-shadow:0 0 0 5px rgba(79,70,229,.18)}
+.ji .dt{display:inline-block;font-size:12px;padding:2px 10px;border-radius:99px;background:var(--bd);color:var(--mu);margin-bottom:4px}
+.ji b{display:block}.ji small{color:var(--mu)}
+#cp{position:fixed;inset:0;z-index:40;background:rgba(0,0,0,.45);display:flex;justify-content:center;align-items:flex-start;padding-top:14vh}#cp[hidden]{display:none}
+.cb{width:min(560px,92vw);background:var(--cd);border:1px solid var(--bd);border-radius:16px;padding:14px;box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.cb input{margin:0}#cl{list-style:none;margin:8px 0;padding:0;max-height:46vh;overflow:auto}
+#cl li{padding:10px 12px;border-radius:10px;cursor:pointer}#cl li.on{background:var(--ac);color:#fff}.cb small{color:var(--mu)}
+@media(prefers-reduced-motion:reduce){.ln{opacity:1!important}}
 </style>
 </head>
 <body>
 <header><div class="w nb">
-<a class="lg" href="#top">RAVISINH<i> </i>PARMAR</a>
+<a class="lg" href="#top">Ravisinh<i>.</i>Parmar</a>
 <nav id="nv"><a class="l" href="#about">About</a><a class="l" href="#skills">Skills</a><a class="l" href="#experience">Experience</a><a class="l" href="#projects">Projects</a><a class="l" href="#education">Education</a><a class="l" href="#contact">Contact</a></nav>
-<div><button class="ib" id="th" aria-label="Toggle light or dark theme">◐</button> <button class="ib mb" id="mb" aria-label="Open menu">☰</button></div>
+<div><button class="ib" id="kb" aria-label="Open quick menu (Ctrl or Cmd + K)">⌘</button> <button class="ib" id="th" aria-label="Toggle light or dark theme">◐</button> <button class="ib mb" id="mb" aria-label="Open menu">☰</button></div>
 </div><div id="pg"></div></header>
 
-<main id="top">
-<section class="hero"><div class="w hg">
+<div id="gl"></div><main id="top">
+<section class="hero"><canvas id="bg"></canvas><div class="w hg">
 <div>
 <span class="pill"><b></b>Based in Gujarat, India</span>
 <h1>Hi, I’m <span>Ravisinh Parmar</span></h1>
@@ -111,15 +155,10 @@ footer{padding:28px 0 40px;border-top:1px solid var(--bd);color:var(--mu);font-s
 <div><b data-to="3">0</b><small>industries served</small></div>
 <div><b id="sc" data-to="28">0</b><small>tools &amp; technologies</small></div>
 </div></div>
-<div class="cd rv"><b>The integration chain I work across</b><br><small style="color:var(--mu)">Hover each step</small>
-<ul class="fl">
-<li><b>Power Automate</b><small>Cloud flows that orchestrate and call external APIs</small></li>
-<li><b>Azure API Management &amp; Functions</b><small>Secure gateway and custom logic, with Key Vault</small></li>
-<li><b>C# Plugins</b><small>Server-side business logic and validation</small></li>
-<li><b>Dataverse</b><small>The data layer, secured with roles and access teams</small></li>
-</ul></div>
+<div class="tm rv" role="img" aria-label="Illustrative C# plugin example"><div class="bar"><i></i><i></i><i></i><span style="margin-left:8px">ValidateRecordPlugin.cs</span></div><pre><code><span class="ln" style="--i:0"><span class="k">public class</span> <span class="t">ValidateRecordPlugin</span> : <span class="t">IPlugin</span></span><span class="ln" style="--i:1">{</span><span class="ln" style="--i:2">  <span class="k">public void</span> Execute(<span class="t">IServiceProvider</span> sp)</span><span class="ln" style="--i:3">  {</span><span class="ln" style="--i:4">    <span class="c">// read the Target from the plugin context</span></span><span class="ln" style="--i:5">    <span class="k">var</span> ctx = GetContext(sp);</span><span class="ln" style="--i:6">    <span class="k">if</span> (!IsValid(ctx))</span><span class="ln" style="--i:7">      <span class="k">throw new</span> <span class="t">InvalidPluginExecutionException</span>(msg);</span><span class="ln" style="--i:8">  }</span><span class="ln" style="--i:9">}</span><span class="ln" style="--i:10"><span class="c">// shipped through solution pipelines</span></span></code></pre><small style="display:block;padding:0 16px 12px;color:#6b7a99">Illustrative example of a Dataverse plugin</small></div>
 </div></section>
 
+<div class="mq" aria-hidden="true"><div class="mt" id="mt"></div></div>
 <section id="about"><div class="w rv"><h2>About me</h2><p class="sub">Dynamics 365 CE and Power Platform Developer from Gujarat, India.</p>
 <div class="ab"><div>
 <p>I have more than 2.5 years of experience building C# plugins, Power Automate flows, JavaScript form logic and PCF controls on Dataverse. I have delivered solutions for real estate, industrial and financial-services clients across three concurrent engagements.</p>
@@ -130,12 +169,14 @@ footer{padding:28px 0 40px;border-top:1px solid var(--bd);color:var(--mu);font-s
 <div><span>Location</span>Nadiad, Gujarat, India</div><div><span>Focus</span>Plugins, flows, PCF, integrations</div>
 <div><span>Education</span>M.Sc IT, Sardar Patel University</div></div></div></div></section>
 
+<section id="services"><div class="w rv"><h2>What I do</h2><p class="sub">The kinds of work I deliver on Dynamics 365 and the Power Platform.</p><div class="sg" id="sv"></div></div></section>
+<section id="flow"><div class="w rv"><h2>Integration flow</h2><p class="sub">The chain I build and troubleshoot end to end. Select a step.</p><div class="pf" id="pf"></div><div class="cd" id="pd" aria-live="polite"></div></div></section>
 <section id="skills"><div class="w rv"><h2>Skills</h2><p class="sub">Filter by category, then select any skill to see which projects used it.</p>
 <div class="tabs" id="tb" role="tablist"></div><div class="chips" id="ch"></div><div id="ss" aria-live="polite"></div></div></section>
 
 <section id="experience"><div class="w rv"><h2>Experience</h2><p class="sub">Currently working across three client engagements.</p>
 <div class="tl"><h3>Software Engineer (Dynamics 365 &amp; Power Platform Developer)</h3><div class="m">Extendrum Infotech · Anand, Gujarat, India · Apr 2024 – Present</div>
-<p style="color:var(--mu);margin:0">Delivering Dynamics 365 CE solutions end to end: requirement analysis, plugin and flow development, form customisation, integrations, reporting and deployment to production. Full-time on Stewart Title, with part-time engagements for CS Clean Solutions and VonWin Holdings.</p></div></div></section>
+<p style="color:var(--mu);margin:0">Delivering Dynamics 365 CE solutions end to end: requirement analysis, plugin and flow development, form customisation, integrations, reporting and deployment to production. Primary engagement on Stewart Title, with part-time engagements for CS Clean Solutions and VonWin Holdings.</p></div><h3 class="jh">Career journey</h3><div class="jr" id="jr"><div class="fi" id="fi"></div></div></div></section>
 
 <section id="projects"><div class="w rv"><h2>Projects</h2><p class="sub">Select a project to expand the details.</p><div id="pl"></div></div></section>
 
@@ -152,6 +193,7 @@ footer{padding:28px 0 40px;border-top:1px solid var(--bd);color:var(--mu);font-s
 <footer><div class="w">© <span id="yr"></span> Ravisinh Parmar · Dynamics 365 &amp; Power Platform Developer</div></footer>
 <button class="ib" id="up" aria-label="Back to top">↑</button><div id="to" role="status"></div>
 
+<div id="cp" hidden><div class="cb"><input id="ci" placeholder="Type a command or search…" autocomplete="off" aria-label="Command search"><ul id="cl"></ul><small>↑ ↓ to move · Enter to run · Esc to close</small></div></div>
 <script>
 const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
 const C={d:'Dynamics 365 &amp; Power Platform',v:'Development',c:'Integration &amp; Cloud',r:'Data &amp; Reporting',t:'Tools &amp; Process'};
@@ -170,7 +212,7 @@ p:['Independently analysed business requirements and translated them into D365 s
 {n:'VonWin Holdings',t:'Distressed assets and trade claims financing · Part-time',d:'Aug 2025 – Present',g:'d365 dv fo dw pa js cs cop wt',
 s:'A Dynamics 365 solution for a firm that provides liquidity by purchasing defaulted, distressed and illiquid financial instruments such as trade claims.',
 p:['Independently analysed requirements and delivered customisations: forms, views, fields, workflows, plugins and form JavaScript.','Built and configured a Copilot Studio agent to support business workflows and improve user interaction inside the platform.','Integrated Microsoft Teams with D365 CE to improve collaboration and record visibility for internal teams.','Configured Word templates for automated document generation from D365 data.','Managed deployments from lower environments to Production, validating solutions before go-live.']}];
-const E=[['M.Sc IT','Sardar Patel University','2024','8.2 GPA'],['B.Sc (CS)','Sardar Patel University','2022','8.43 GPA'],['HSC','Gujarat Secondary and Higher Secondary Education Board','2018','78%'],['SSC','Gujarat Secondary and Higher Secondary Education Board','2016','77%']];
+const E=[['M.Sc IT','Sardar Patel University','2024','7.2 GPA'],['B.Sc (CS)','Sardar Patel University','2022','6.43 GPA'],['HSC','Gujarat Secondary and Higher Secondary Education Board','2018','74%'],['SSC','Gujarat Secondary and Higher Secondary Education Board','2016','67%']];
 let cat='all',sel=null;
 const chip=(id,x='')=>`<button class="chip ${x}" data-id="${id}" data-c="${S[id][1]}">${S[id][0]}</button>`;
 $('#tb').innerHTML=[['all','All']].concat(Object.entries(C)).map(([k,v])=>`<button class="tab ${k=='all'?'on':''}" role="tab" data-cat="${k}">${v}</button>`).join('');
@@ -212,6 +254,54 @@ if(io){const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){
  const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;co.unobserve(e.target);const el=e.target,to=+el.dataset.to,dc=+(el.dataset.dec||0),t0=performance.now();(function f(t){const k=Math.min((t-t0)/1200,1);el.textContent=(to*(1-Math.pow(1-k,3))).toFixed(dc)+(k==1&&dc?'+':'');if(k<1)requestAnimationFrame(f)})(t0)})) ;$$('[data-to]').forEach(x=>co.observe(x));
  const nv=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)$$('nav a.l').forEach(a=>a.classList.toggle('on',a.hash=='#'+e.target.id))}),{rootMargin:'-40% 0px -55% 0px'});$$('main section[id]').forEach(s=>nv.observe(s))}
 else{$$('.rv').forEach(x=>x.classList.add('in'));$$('[data-to]').forEach(x=>x.textContent=x.dataset.to)}
+
+// ---- v2 additions ----
+const go=h=>{const e=$(h);e&&e.scrollIntoView({behavior:'smooth'})};
+const RM=matchMedia('(prefers-reduced-motion:reduce)').matches;
+const mh=Object.values(S).map(v=>`<span>${v[0]}</span>`).join('');$('#mt').innerHTML=mh+mh;
+const V=[['🔌','Plugin development','C# plugins for server-side business logic, validation and data integrity.'],['⚡','Power Automate','Cloud flows for automation, Access Team assignment and external API calls.'],['🧩','PCF controls','Modifying and extending PCF controls to improve usability on forms.'],['☁️','Azure integrations','Azure Functions, API Management and Key Vault connecting D365 with external systems.'],['📊','Reporting','Reports with FetchXML, SSRS and Power BI, including FetchXML to SSRS migrations.'],['🚀','ALM and deployment','Solution export and import pipelines, environment promotion and production go-live.'],['🤖','Copilot Studio and Teams','A Copilot Studio agent for business workflows and Microsoft Teams integration with D365 CE.'],['🔐','Customization and security','Forms, views, workflows, security roles, Access Teams and row-level security.']];
+$('#sv').innerHTML=V.map((v,i)=>`<div class="sv" style="--i:${i}"><span class="ic">${v[0]}</span><h3>${v[1]}</h3><p>${v[2]}</p></div>`).join('');
+const F=[['⚡','Power Automate','Cloud flows that orchestrate steps, assign users to Access Teams and call external APIs.','Run history, trigger inputs and failed actions.'],['☁️','API Management &amp; Functions','Gateway endpoints and Azure Functions in front of the platform, with secrets kept in Key Vault.','Requests and responses, policy errors and function logs.'],['🧩','C# Plugins','Plugins in the Dataverse pipeline for validation and business logic.','Plugin trace logs and the execution stage.'],['🗄️','Dataverse','Tables, relationships, security roles, business units and row-level security.','Record ownership and the access that decides what a call can see.']];
+$('#pf').innerHTML=F.map((f,i)=>`${i?'<i class="ar"></i>':''}<button class="nd" data-n="${i}"><span>${f[0]}</span><small>${f[1]}</small></button>`).join('');
+let fx=0,ftm;
+const sf=i=>{fx=i;$$('.nd').forEach((b,k)=>b.classList.toggle('on',k==i));const f=F[i];$('#pd').innerHTML=`<h3>${f[1]}</h3><p><b>What I build:</b> ${f[2]}</p><p><b>What I trace:</b> ${f[3]}</p>`};
+sf(0);if(!RM)ftm=setInterval(()=>sf((fx+1)%F.length),3600);
+$('#pf').onclick=e=>{const b=e.target.closest('[data-n]');if(b){clearInterval(ftm);sf(+b.dataset.n)}};
+const J=[['2016','SSC completed','Gujarat Secondary and Higher Secondary Education Board'],['2018','HSC completed','Gujarat Secondary and Higher Secondary Education Board'],['2022','B.Sc (CS)','Sardar Patel University'],['2024','M.Sc IT','Sardar Patel University · 7.2 GPA'],['Apr 2024','Joined Extendrum Infotech','Software Engineer, Dynamics 365 and Power Platform'],['Dec 2024','Stewart Title','Plugins, flows, PCF controls and Azure integrations'],['Jan 2025','CS Clean Solutions','Part-time Dynamics 365 engagement'],['Aug 2025','VonWin Holdings','Part-time · Copilot Studio, Teams and Dual-write']];
+$('#jr').insertAdjacentHTML('beforeend',J.map(j=>`<div class="ji"><span class="dt">${j[0]}</span><b>${j[1]}</b><small>${j[2]}</small></div>`).join(''));
+const jf=()=>{const r=$('#jr').getBoundingClientRect(),p=Math.min(Math.max((innerHeight*.65-r.top)/r.height,0),1);$('#fi').style.height=p*100+'%';$$('.ji').forEach(i=>i.classList.toggle('on',i.offsetTop<=p*r.height+4))};
+addEventListener('scroll',jf,{passive:true});addEventListener('resize',jf);jf();
+// command palette
+const cmds=[['About','#about'],['What I do','#services'],['Integration flow','#flow'],['Skills','#skills'],['Experience','#experience'],['Projects','#projects'],['Education','#education'],['Contact','#contact']].map(([n,h])=>['Go to '+n,()=>go(h)]);
+cmds.push(['Toggle light or dark theme',()=>$('#th').click()],['Copy my email',()=>$('[data-cp]').click()],['Send me an email',()=>{location.href='mailto:ravisinh0037@gmail.com'}],['Back to top',()=>scrollTo({top:0,behavior:'smooth'})]);
+Object.keys(S).forEach(k=>cmds.push(['Skill: '+S[k][0],()=>{sel=k;upd();go('#skills')}]));
+let pi=0,ft=cmds;
+const rl=()=>{const q=$('#ci').value.toLowerCase();ft=cmds.filter(c=>c[0].toLowerCase().includes(q));pi=Math.min(pi,Math.max(ft.length-1,0));$('#cl').innerHTML=ft.map((c,i)=>`<li class="${i==pi?'on':''}" data-i="${i}">${c[0]}</li>`).join('')||'<li>No match</li>';const a=$('#cl .on');a&&a.scrollIntoView({block:'nearest'})};
+const op=v=>{$('#cp').hidden=!v;if(v){$('#ci').value='';pi=0;rl();$('#ci').focus()}};
+const run=i=>{const c=ft[i];if(c){op(false);c[1]()}};
+$('#kb').onclick=()=>op(true);$('#ci').oninput=()=>{pi=0;rl()};
+$('#cl').onclick=e=>{const l=e.target.closest('[data-i]');l&&run(+l.dataset.i)};
+$('#cp').onclick=e=>{if(e.target.id=='cp')op(false)};
+addEventListener('keydown',e=>{const open=!$('#cp').hidden;
+ if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()=='k'){e.preventDefault();op(!open);return}
+ if(!open){if(e.key=='/'&&!/INPUT|TEXTAREA/.test(document.activeElement.tagName)){e.preventDefault();op(true)}return}
+ if(e.key=='Escape')op(false);
+ else if(e.key=='ArrowDown'){e.preventDefault();pi=Math.min(pi+1,ft.length-1);rl()}
+ else if(e.key=='ArrowUp'){e.preventDefault();pi=Math.max(pi-1,0);rl()}
+ else if(e.key=='Enter'){e.preventDefault();run(pi)}});
+// cursor glow + 3D tilt (mouse devices only)
+if(matchMedia('(hover:hover)').matches){const gl=$('#gl');document.addEventListener('pointermove',e=>{gl.style.opacity=1;gl.style.transform=`translate(${e.clientX}px,${e.clientY}px)`;const t=e.target.closest('.sv,.tm');$$('.sv,.tm').forEach(n=>{if(n!==t)n.style.transform=''});if(!t)return;const r=t.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;t.style.transform=`perspective(700px) rotateY(${x*8}deg) rotateX(${-y*8}deg) translateY(-4px)`});document.addEventListener('pointerleave',()=>{gl.style.opacity=0})}
+// name scramble
+(function(){const el=$('h1 span');if(!el||RM)return;const t=el.textContent,ch='01{}<>/;#';let f=0;const id=setInterval(()=>{el.textContent=[...t].map((c,i)=>c==' '||i<f/2?c:ch[Math.random()*ch.length|0]).join('');if(++f>t.length*2){el.textContent=t;clearInterval(id)}},40)})();
+// hero network canvas
+(function(){const c=$('#bg');if(!c||RM)return;const x=c.getContext('2d'),hero=c.parentElement;let w,h,ps,m={x:-999,y:-999},on=true,col='#4f46e5',fr=0;
+const rs=()=>{w=c.width=hero.offsetWidth;h=c.height=hero.offsetHeight;ps=Array.from({length:Math.min(80,w/14|0)},()=>({x:Math.random()*w,y:Math.random()*h,vx:Math.random()-.5,vy:Math.random()-.5}))};rs();addEventListener('resize',rs);
+hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();m.x=e.clientX-r.left;m.y=e.clientY-r.top});hero.addEventListener('pointerleave',()=>{m.x=-999});
+if(io)new IntersectionObserver(e=>{on=e[0].isIntersecting}).observe(hero);
+(function d(){requestAnimationFrame(d);if(!on)return;if(fr++%60==0)col=getComputedStyle(R).getPropertyValue('--ac').trim()||col;x.clearRect(0,0,w,h);x.fillStyle=x.strokeStyle=col;
+ps.forEach((p,i)=>{p.x+=p.vx*.5;p.y+=p.vy*.5;if(p.x<0||p.x>w)p.vx*=-1;if(p.y<0||p.y>h)p.vy*=-1;const dm=Math.hypot(p.x-m.x,p.y-m.y);if(dm<140&&dm>0){p.x+=(p.x-m.x)/dm*1.5;p.y+=(p.y-m.y)/dm*1.5}
+x.globalAlpha=.7;x.beginPath();x.arc(p.x,p.y,1.8,0,7);x.fill();
+for(let j=i+1;j<ps.length;j++){const q=ps[j],dd=Math.hypot(p.x-q.x,p.y-q.y);if(dd<110){x.globalAlpha=(1-dd/110)*.35;x.beginPath();x.moveTo(p.x,p.y);x.lineTo(q.x,q.y);x.stroke()}}});x.globalAlpha=1})()})();
 </script>
 </body>
 </html>
